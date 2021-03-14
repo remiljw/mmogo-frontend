@@ -1,6 +1,7 @@
 # Mmogo Frontend
-- This is the front end of the Mmogo assessment, you should follow this set uo only if you have followed the set up at https://github.com/remiljw/mmogo
+- This is the front end of the Mmogo assessment, you should follow this set up only if you have followed the set up at https://github.com/remiljw/mmogo
 
+- For some reasons the deployed app at https://mmogo-webapp.netlify.app/ returns 404 for some pages and the loader doesn't stop in some instances. Best to run on your local machine.
 ## Setup
 - Clone this repo
 - cd into the cloned repo
