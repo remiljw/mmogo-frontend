@@ -1,7 +1,7 @@
 # Mmogo Frontend
 - This is the front end of the Mmogo assessment, you should follow this set up only if you have followed the set up at https://github.com/remiljw/mmogo
 
-- For some reasons the deployed app at https://mmogo-webapp.netlify.app/ returns 404 when trying to add favorites and the app at https://mmogo-frontend.vercel.app/request returns 405 when trying to do the same. Best to run on your local machine.
+- For some reasons the deployed app at https://mmogo-webapp.netlify.app/ returns 404 when trying to add favorites and the app at https://mmogo-frontend.vercel.app/ returns 405 when trying to do the same. Best to run on your local machine.
 ## Setup
 - Clone this repo
 - cd into the cloned repo
