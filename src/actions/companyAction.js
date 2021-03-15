@@ -87,6 +87,7 @@ export const addFavorite = (id) => async (dispatch, getState) => {
 
     const config = {
       headers: {
+        "Content-Type": "application/json",
         Authorization: `Token ${userInfo.auth_token}`,
       },
     };
@@ -129,7 +130,7 @@ export const deleteFavorite = (id) => async (dispatch, getState) => {
     );
     dispatch({
       type: FAVORITES_DELETE_SUCCESS,
-      payload: data,
+      payload: data + 'removed',
     });
     
   } catch (error) {
