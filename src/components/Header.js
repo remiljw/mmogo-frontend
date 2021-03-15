@@ -13,7 +13,7 @@ const Header = ({ history }) => {
   const { userInfo } = userLogin;
 
   const userDetails = useSelector((state) => state.userDetails);
-  const { loading, error, user } = userDetails;
+  const { user } = userDetails;
 
   const logoutHandler = () => {
     //LOGOUT
@@ -49,7 +49,7 @@ const Header = ({ history }) => {
               <ul class="navbar-nav ml-lg-auto">
                 {userInfo ? (
                   <NavDropdown
-                    title={`${user.email}`}
+                    title={`${user.username}`}
                     id="username"
                   >
                     <LinkContainer to="/dashboard">

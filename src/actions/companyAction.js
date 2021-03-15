@@ -105,7 +105,6 @@ export const addFavorite = (id) => async (dispatch, getState) => {
           ? error.response.data.message
           : error.message,
     });
-    console.log(error.response.data);
   }
 };
 
@@ -128,7 +127,6 @@ export const deleteFavorite = (id) => async (dispatch, getState) => {
       `${url}/api/fav/${id}`,
       config
     );
-    console.log(data);
     dispatch({
       type: FAVORITES_DELETE_SUCCESS,
       payload: data,

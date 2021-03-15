@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Modal } from "react-responsive-modal";
-import { Form, Card, Col, Row } from "react-bootstrap";
+import React from "react";
+import { useDispatch, } from "react-redux";
+import { Form, Card, } from "react-bootstrap";
 import { addFavorite, deleteFavorite, } from "../actions/companyAction";
-import Message from "./Message";
-import Loader from "./Loader";
+
 
 const CompanyComponent = ({
   companies,
   favorites,
 }) => {
   const dispatch = useDispatch();
-
+  
   const deleteHandler = (e) => {
     e.preventDefault();
     const id = favorites.id;

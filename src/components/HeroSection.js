@@ -9,11 +9,11 @@ const HeroSection = () => {
           <div className="row">
             <div className="col-12 col-lg-6 pt-3 mb-5 mb-lg-0">
               <h1 className="site-headline font-weight-bold mb-3 text-dark">
-                Managing your <span className="hero-fancy-text">employees</span>{" "}
+                Managing your <span className="hero-fancy-text">favorite companies</span>{" "}
                 has never been so simple
               </h1>
               <div className="site-tagline mb-4">
-                Designed for small business owners, and entrepreneurs
+                Designed for individuals and business
               </div>
               <div className="cta-btns mb-lg-3">
                 <Link className="btn custom-btn-primary mr-2 mb-3" to="/login">
