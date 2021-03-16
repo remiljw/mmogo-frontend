@@ -92,7 +92,7 @@ export const addFavorite = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`/api/fav/${id}/` , {}, config);
+    const { data } = await axios.post(`${url}/api/fav/${id}/` , {}, config);
 
     dispatch({
       type: FAVORITES_CREATE_SUCCESS,
