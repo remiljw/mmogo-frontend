@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Fuse from "fuse.js";
 import { Form, Row, Col, Tabs, Tab } from "react-bootstrap";
-
-import {
-  listCompanies,
-  listFavorites,
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { listCompanies, listFavorites,
 } from "../actions/companyAction";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -17,13 +16,12 @@ import CompanyComponent from "../components/CompanyComponent";
 const DashboardScreen = ({ history, location }) => {
 
   const dispatch = useDispatch();
-
+  const onClick = () => dispatch(listFavorites());
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
   const addFav = useSelector((state) => state.addFav);
   const {
-    loading: loadingAdd,
     error: errorAdd,
     message: messageAdd,
   } = addFav;
@@ -45,11 +43,10 @@ const DashboardScreen = ({ history, location }) => {
 
   const deleteFav = useSelector((state) => state.deleteFav);
   const {
-    loading: loadingDel,
     error: errorDel,
     message: messageDel,
   } = deleteFav;
-  const [visible, setVisible] = useState(false)
+ 
   useEffect(() => {
     
     window.scrollTo(0, 0);
@@ -61,17 +58,6 @@ const DashboardScreen = ({ history, location }) => {
     if (!userInfo) {
       history.push("/login");
     }
-    if(!messageDel){
-      setVisible(false)
-      return
-     }
-     // error exists. Display the message and hide after 5 secs
-     setVisible(true)
-     const timer = setTimeout(() => {
-       setVisible(false)
-     }, 5000);
-     return () => clearTimeout(timer);
-
   }, [
     history,
     userInfo,
@@ -80,6 +66,7 @@ const DashboardScreen = ({ history, location }) => {
   ]);
 
   const [searchData, setSearchData] = useState(allCompanies);
+  const [query, updateQuery] = useState('');
   const searchItem = (query) => {
     const fuse = new Fuse(allCompanies, {
       shouldSort: true,
@@ -104,19 +91,19 @@ const DashboardScreen = ({ history, location }) => {
       <Form.Label>Search Companies</Form.Label>
               <Form.Control
               type="search"
-              onChange={(e) => searchItem(e.target.value)}
+              onChange={(e) => {updateQuery(e.target.value); searchItem(e.target.value)}}
               placeholder="Search Companies"></Form.Control>
       <Col md={12}>
         <div className="py-3">
-         {errorAdd && <Message variant="danger">{errorAdd}</Message>}
-          {loadingAdd && <Loader />}
-          {messageAdd && <Message variant="success">{messageAdd}</Message>}
-          {errorDel && <Message variant="danger">{errorDel}</Message>}
-          {loadingDel && <Loader />}
-          {messageDel && <Message variant="success">{messageDel}</Message>}
-          <Tabs fill defaultActiveKey="pending" id="uncontrolled-tab-example">
+           {messageAdd && toast.info(messageAdd)}
+           {errorAdd && toast.error(errorAdd)}
+           {messageDel && toast.info(messageDel)}
+           {errorDel && toast.error(errorDel)}
+           <ToastContainer autoClose={2000} hideProgressBar={true} newestOnTop={true} closeOnClick
+                          rtl={false} pauseOnFocusLoss pauseOnHover/>
+          <Tabs fill onSelect={onClick} defaultActiveKey="companies" id="uncontrolled-tab-example">
             <Tab
-              eventKey="pending"
+              eventKey="companies"
               title={`Companies`}
             >
               <Row className="py-3">
@@ -125,7 +112,13 @@ const DashboardScreen = ({ history, location }) => {
                 ) : errorCom ? (
                   <Message variant="danger">{errorCom}</Message>
                 ) : allCompanies.length > 0 ? (
-                  searchData.map((companies) => (
+                 query ? (searchData.map((companies) => (                    
+                    <>
+                      <Col md={6}>
+                        <CompanyComponent companies={companies} />
+                      </Col>                     
+                    </> 
+                  ))) : allCompanies.map((companies) => (
                     <>
                       <Col md={6}>
                         <CompanyComponent companies={companies} />
@@ -140,7 +133,7 @@ const DashboardScreen = ({ history, location }) => {
               </Row>
             </Tab>
             <Tab
-              eventKey="rejected"
+              eventKey="favorites"
               title={`Favorites`}
             >
               <Row className="py-3">
@@ -167,6 +160,7 @@ const DashboardScreen = ({ history, location }) => {
         </div>
       </Col>
     </Row>
+    // </>
   );
 };
 
