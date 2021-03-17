@@ -7,7 +7,7 @@
 - Clone this repo
 - cd into the cloned repo
 - run `npm install` to install dependencies
-- Go the actions folder and change the `const url` in both files on line 18 and 25 respectively  to the port of the backend server. i.e: `http://localhost:8000` 
+- Go the actions folder and change the `const url` value in both files on line 18 and 25 respectively  to the port of the backend server. i.e: `http://localhost:8000` 
 - Set the proxy variable in package.json to the port of the backend server as in the preceeding step.
 - run `npm start`
 - You are good to go. Test the app.
