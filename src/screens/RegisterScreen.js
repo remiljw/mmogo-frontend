@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { Form, Row, Col } from "react-bootstrap";
 import React, { useState,} from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { register } from "../actions/userActions";
@@ -22,12 +21,12 @@ const RegisterScreen = ({ history, location }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-      dispatch(register(username, email, password));
-      setUserName('');
-      setEmail('');
-      setPassword('');
+    dispatch(register(username, email, password));
+    setUserName('');
+    setEmail('');
+    setPassword('');
   };
-
+  
   return (
     <FormContainer>
       <h1>Sign Up</h1>

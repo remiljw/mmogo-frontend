@@ -193,7 +193,7 @@ export const activate = (uid, token) => async (dispatch) => {
         error.response 
         && error.response.data.message
           ? error.response.data
-          : error.response.data.token
+          : error.response.data.token || error.response.data.uid
     });
   }
 };
