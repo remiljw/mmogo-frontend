@@ -62,7 +62,7 @@ const RegisterScreen = ({ history, location }) => {
             placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            autocomplete="new-password"
+            autoComplete="new-password"
             required
           ></Form.Control>
         </Form.Group>

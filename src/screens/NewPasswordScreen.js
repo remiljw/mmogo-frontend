@@ -33,7 +33,7 @@ const NewPasswordScreen = () => {
             placeholder="Enter new password"
             value={new_password}
             onChange={(e) => setNewPassword(e.target.value)}
-            autocomplete="new-password"
+            autoComplete="new-password"
             required
           ></Form.Control>
         </Form.Group>

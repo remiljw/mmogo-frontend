@@ -58,7 +58,7 @@ const LoginScreen = ({ history, location }) => {
             placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            autocomplete="current-password"
+            autoComplete="current-password"
             required
           ></Form.Control>
         </Form.Group>
