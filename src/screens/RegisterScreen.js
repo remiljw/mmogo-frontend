@@ -41,6 +41,7 @@ const RegisterScreen = ({ history, location }) => {
             placeholder="Enter username"
             value={username}
             onChange={(e) => setUserName(e.target.value)}
+            required
           ></Form.Control>
         </Form.Group>
         <Form.Group controlId="email">
@@ -50,6 +51,7 @@ const RegisterScreen = ({ history, location }) => {
             placeholder="Enter email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           ></Form.Control>
         </Form.Group>
 
@@ -61,6 +63,7 @@ const RegisterScreen = ({ history, location }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autocomplete="new-password"
+            required
           ></Form.Control>
         </Form.Group>
         <button type="submit" className="btn custom-btn-primary">

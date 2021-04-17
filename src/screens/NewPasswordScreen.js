@@ -34,6 +34,7 @@ const NewPasswordScreen = () => {
             value={new_password}
             onChange={(e) => setNewPassword(e.target.value)}
             autocomplete="new-password"
+            required
           ></Form.Control>
         </Form.Group>
         <button type="submit" className="btn custom-btn-primary">

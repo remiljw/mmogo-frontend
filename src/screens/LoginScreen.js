@@ -47,6 +47,7 @@ const LoginScreen = ({ history, location }) => {
             placeholder="Enter username"
             value={username}
             onChange={(e) => setEmail(e.target.value)}
+            required
           ></Form.Control>
         </Form.Group>
 
@@ -58,6 +59,7 @@ const LoginScreen = ({ history, location }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autocomplete="current-password"
+            required
           ></Form.Control>
         </Form.Group>
         <button type="submit" className="btn custom-btn-primary">
