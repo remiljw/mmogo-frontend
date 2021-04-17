@@ -59,6 +59,7 @@ const LoginScreen = ({ history, location }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="current-password"
+            minLength="8"
             required
           ></Form.Control>
         </Form.Group>

@@ -53,7 +53,7 @@ export const login = (username, password) => async (dispatch) => {
         error.response 
         && error.response.data.message
           ? error.response.data
-          : error.response.data.non_field_errors
+          : error.response.data.non_field_errors || error.response.data.username || error.response.data.password,
     });
   }
 };
@@ -96,7 +96,7 @@ export const register = (username, email,  password) => async (
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
-          : error.response.data.username || error.response.data.email || error.response.data.password,
+          : error.response.data.non_field_errors || error.response.data.username || error.response.data.email || error.response.data.password,
     });
   }
 };

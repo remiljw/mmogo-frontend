@@ -34,6 +34,7 @@ const NewPasswordScreen = () => {
             value={new_password}
             onChange={(e) => setNewPassword(e.target.value)}
             autoComplete="new-password"
+            minLength="8"
             required
           ></Form.Control>
         </Form.Group>

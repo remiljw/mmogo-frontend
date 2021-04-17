@@ -63,6 +63,7 @@ const RegisterScreen = ({ history, location }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="new-password"
+            minLength="8"
             required
           ></Form.Control>
         </Form.Group>
