@@ -36,6 +36,7 @@ const ResetPasswordScreen = () => {
             placeholder="Enter email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           ></Form.Control>
         </Form.Group>
         <button type="submit" className="btn custom-btn-primary">
