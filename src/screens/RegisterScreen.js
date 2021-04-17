@@ -60,6 +60,7 @@ const RegisterScreen = ({ history, location }) => {
             placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            autocomplete="new-password"
           ></Form.Control>
         </Form.Group>
         <button type="submit" className="btn custom-btn-primary">

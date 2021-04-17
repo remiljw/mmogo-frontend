@@ -57,6 +57,7 @@ const LoginScreen = ({ history, location }) => {
             placeholder="Enter password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            autocomplete="current-password"
           ></Form.Control>
         </Form.Group>
         <button type="submit" className="btn custom-btn-primary">
